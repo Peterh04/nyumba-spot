@@ -2,12 +2,15 @@
   /* (Trust / Brand) */
   --primary-600: #fffafa;
   --primary-400: #ffffff;
-  --primary-100: #eaeaea;
+  --primary-100: #f1eeee;
   --primary-50: #f5f5f5;
+  --primary-20: #f8f6f6;
 
   /* (Structure / UI depth) */
   --secondary-600: #ff5a1f;
+  --secondary-400: #f98f69;
   --secondary-100: #fff1eb;
+  --secondary-100: #fef6f3;
 
   --accent-400: #262330;
 
@@ -146,4 +149,29 @@ button {
 html,
 body {
   overflow-x: hidden;
+}
+/* Base font (everything) */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+
+/* Headings (hero titles, section titles) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Optional: buttons */
+button,
+.btn {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }

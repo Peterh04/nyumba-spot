@@ -6,9 +6,73 @@ import HouseIcon from "../assets/icons/house.svg?react";
 import TrustIcon from "../assets/icons/trust.svg?react";
 import SupportIcon from "../assets/icons/support.svg?react";
 import ClientIcon from "../assets/icons/client.svg?react";
+import PropertyPreview from "../components/Propertypreview.jsx";
+
 import CloudinaryHeroImage from "../components/CloudinaryHeroImage";
+import useIsMobile from "../hooks/useIsMobile.jsx";
 
 export default function HomePage() {
+  const isMobile = useIsMobile();
+
+  const properties = [
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+    {
+      name: "Claire Apartments",
+      price: "20000",
+      loaction: "Kilimmani",
+      image: "2",
+    },
+  ];
+
+  const visibleProperties = isMobile ? properties.slice(0, 4) : properties;
+
   return (
     <main className="home-page" aria-label="homepage">
       <Header />
@@ -47,31 +111,70 @@ export default function HomePage() {
       </section>
 
       <div className="trust-slip" aria-label="trust slip">
-        <div className="individual-slip">
-          <div className="slip-icon-container">
+        <div className="individual-slip" aria-label="properties listed">
+          <div className="slip-icon-container house-container">
             <HouseIcon className="fa" />
           </div>
-          <div className="slip-content" aria-label="slip content"></div>
+          <div className="slip-content" aria-label="slip content">
+            <h3>20+</h3>
+            <h4>Properties Listed</h4>
+            <p>Wide range of verified properties.</p>
+          </div>
         </div>
-        <div className="individual-slip">
-          <div className="slip-icon-container">
+        <div className="individual-slip" aria-label="trusted agents">
+          <div className="slip-icon-container agents-container">
             <TrustIcon className="fa" />
           </div>
-          <div className="slip-content" aria-label="slip content"></div>
+          <div className="slip-content" aria-label="slip content">
+            <h3>10+</h3>
+            <h4>Trusted Agents</h4>
+            <p>Experienced agents ready to help you.</p>
+          </div>
         </div>
         <div className="individual-slip">
-          <div className="slip-icon-container">
+          <div className="slip-icon-container clients-container">
             <ClientIcon className="fa" />
           </div>
-          <div className="slip-content" aria-label="slip content"></div>
+          <div className="slip-content" aria-label="slip content">
+            <h3>50+</h3>
+            <h4>Happy Clients</h4>
+            <p>Succesfully found their dream homes.</p>
+          </div>
         </div>
         <div className="individual-slip">
-          <div className="slip-icon-container">
+          <div className="slip-icon-container support-container">
             <SupportIcon className="fa" />
           </div>
-          <div className="slip-content" aria-label="slip content"></div>
+          <div className="slip-content" aria-label="slip content">
+            <h3>24/7</h3>
+            <h4>Support</h4>
+            <p>We're here to help you at anytime.</p>
+          </div>
         </div>
       </div>
+
+      <section
+        className="featured-properities"
+        aria-label="featured properities"
+      >
+        <h2>EXPLORE FEATURED PROPERTIES</h2>
+        <div
+          className="property-preview-container"
+          aria-label="property preview container"
+        >
+          {visibleProperties.map((prop, idx) => (
+            <PropertyPreview key={idx} />
+          ))}
+        </div>
+        {isMobile && (
+          <button
+            className="view-featured-btn"
+            aria-label="view all featured button"
+          >
+            View all featured
+          </button>
+        )}
+      </section>
     </main>
   );
 }
