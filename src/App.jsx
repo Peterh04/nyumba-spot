@@ -1,9 +1,10 @@
 import HomePage from "./pages/HomePage";
+import PropertyPage from "./pages/PropertyPage.jsx";
 
 function App() {
   return (
     <>
-      <HomePage />
+      <PropertyPage />
     </>
   );
 }

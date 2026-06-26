@@ -7,6 +7,7 @@ import TrustIcon from "../assets/icons/trust.svg?react";
 import SupportIcon from "../assets/icons/support.svg?react";
 import ClientIcon from "../assets/icons/client.svg?react";
 import PropertyPreview from "../components/Propertypreview.jsx";
+import PopularArea from "../components/PopularArea.jsx";
 
 import CloudinaryHeroImage from "../components/CloudinaryHeroImage";
 import useIsMobile from "../hooks/useIsMobile.jsx";
@@ -174,6 +175,64 @@ export default function HomePage() {
             View all featured
           </button>
         )}
+      </section>
+
+      <section className="popular-areas" aria-label="popular areas">
+        <h2>EXPLORE HOMES IN POPULAR AREAS</h2>
+        <div className="areas-preview-container" aria-label="areas preview">
+          <PopularArea
+            name={"Kileleshwa"}
+            propListNumber={20}
+            location={"Kileleshwa, Nairobi"}
+            img={
+              "https://streamlinefeed.tech/storage/v1/object/public/media/2e9c28c1-5423-4303-a3e9-26fb1dd34d76/8d55ff04-4f8f-463d-b495-47096455d4ce.jpg"
+            }
+          />
+          <PopularArea
+            name={"Ruiru"}
+            propListNumber={60}
+            location={"Ruiru, Kiambu"}
+            img={
+              "https://www.constructionkenya.com/wp-content/uploads/2020/07/Ruiru-town.jpeg"
+            }
+          />
+          <PopularArea
+            name={"Roysambu"}
+            propListNumber={10}
+            location={"Roysambu, Nairobi"}
+            img={
+              "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZvJo_qz6TNc789t9lfAZx_WywAF59lAc--KUFj8-oVlwG2cPZkQ1qLrJ3L0kYlwJ9pRQ-3-KFBIFGYtFTiIF1NgH4E1BhnPF_bO7qW8nWPRj9N5DIJi1eQGRPqRCt5qNdln6NZAbIGMhL=s1360-w1360-h1020-rw"
+            }
+          />
+          <PopularArea
+            name={"Westlands"}
+            propListNumber={10}
+            location={"Westlands, Nairobi"}
+            img={
+              "https://sydiarealty.com/wp-content/uploads/2024/09/09a88b2f-e21e-4e97-af85-0ab0a860af45.jpg"
+            }
+          />
+          <PopularArea
+            name={"Kasarani"}
+            propListNumber={10}
+            location={"Kasarani, Nairobi"}
+            img={
+              "https://gregori-international.com/wp-content/uploads/2025/08/KASARANI-STADIUM-RETOUCHEE-31052018.webp"
+            }
+          />
+          <PopularArea
+            name={"Parklands"}
+            propListNumber={20}
+            location={"Parklands, Nairobi"}
+            img={"https://i.redd.it/7pq8c8tntx961.jpg"}
+          />
+          <PopularArea
+            name={"Lower Kabete"}
+            propListNumber={20}
+            location={"Lower Kabete, Kiambu"}
+            img={"https://pbs.twimg.com/media/EPbU3aNXkAEWabj.jpg"}
+          />
+        </div>
       </section>
     </main>
   );
