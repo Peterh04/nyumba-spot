@@ -1,7 +1,7 @@
 import "../styles/propertyPage.css";
 import BackIcon from "../assets/icons/back.svg?react";
 import { useState } from "react";
-import LikeIcon from "../assets/property-share-linksicons/like.svg?react";
+import LikeIcon from "../assets/icons/like.svg?react";
 import UnLikeIcon from "../assets/icons/like-outline.svg?react";
 import ShareIcon from "../assets/icons/outline-share.svg?react";
 import CalendarIcon from "../assets/icons/calendar.svg?react";
@@ -133,7 +133,7 @@ const PropertyPage = () => {
             <p>Know someone looking for a home like this?</p>
 
             <ul
-              className=""
+              className="property-share-links"
               aria-label="property share links"
             >
               <li
