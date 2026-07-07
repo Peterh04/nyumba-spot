@@ -1,0 +1,23 @@
+.property-amenity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.3rem;
+}
+
+.property-amenity > .fa {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.property-amenity > p {
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 900px) {
+  .property-amenity > .fa {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}

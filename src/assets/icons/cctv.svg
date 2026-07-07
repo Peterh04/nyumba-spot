@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+  <!-- wall mount bracket -->
+  <path d="M2 5 L2 3" />
+  <path d="M1 3 h2" />
+  <!-- arm connecting mount to camera body -->
+  <path d="M3 4 L8 8" />
+  <!-- camera body -->
+  <rect x="7" y="7" width="11" height="6" rx="2" />
+  <!-- lens on the front -->
+  <circle cx="18.5" cy="10" r="2" />
+  <!-- signal waves from lens -->
+  <path d="M22 8.5c.7.4 1 1 1 1.5s-.3 1.1-1 1.5" />
+  <!-- small mount clip under body -->
+  <path d="M9 13 v2 h3 v-2" />
+</svg>

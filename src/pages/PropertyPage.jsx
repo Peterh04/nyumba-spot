@@ -1,18 +1,27 @@
+import { lazy, Suspense, useState } from "react";
 import "../styles/propertyPage.css";
+
 import BackIcon from "../assets/icons/back.svg?react";
-import { useState } from "react";
 import LikeIcon from "../assets/icons/like.svg?react";
 import UnLikeIcon from "../assets/icons/like-outline.svg?react";
 import ShareIcon from "../assets/icons/outline-share.svg?react";
 import CalendarIcon from "../assets/icons/calendar.svg?react";
 import PhoneIcon from "../assets/icons/phone.svg?react";
-import WhatsappIcon from "../assets/icons/whatsapp.svg?react";
-import FacebookIcon from "../assets/icons/facebook.svg?react";
-import XIcon from "../assets/icons/x.svg?react";
-import MailIcon from "../assets/icons/mail.svg?react";
-import ChainIcon from "../assets/icons/chain.svg?react";
-import MediaContainer from "../components/MediaContainer";
+import PinIcon from "../assets/icons/pin.svg?react";
+import BedIcon from "../assets/icons/bed.svg?react";
+import BathIcon from "../assets/icons/bath.svg?react";
+import SizeIcon from "../assets/icons/size.svg?react";
+import ApartmentIcon from "../assets/icons/apartment.svg?react";
+import VerifiedIcon from "../assets/icons/verified.svg?react";
+import StarIcon from "../assets/icons/star.svg?react";
+import MessageIcon from "../assets/icons/message.svg?react";
 
+import PropertyShare from "../components/PropertyShare";
+import MediaContainer from "../components/MediaContainer";
+import PropertyAmenity from "../components/PropertyAmenity";
+import MapSkeleton from "../components/MapSkeleton.jsx";
+
+const PropertyMap = lazy(() => import("../components/PropertyMap.jsx"));
 const PropertyPage = () => {
   const [like, setLike] = useState(false);
 
@@ -21,7 +30,7 @@ const PropertyPage = () => {
   };
   return (
     <main className="property-page" aria-label="property page">
-      <nav
+      <header
         className="property-page-header"
         aria-label="property page heade"
         role="navigation"
@@ -50,7 +59,22 @@ const PropertyPage = () => {
             <ShareIcon className="fa" />
           </button>
         </div>
-      </nav>
+      </header>
+
+      <div
+        className="property-page-action-bar"
+        aria-label="property page action bar"
+        role="navigation"
+      >
+        <button className="call-btn" aria-label="call button">
+          <PhoneIcon className="fa" />
+          Call Agent
+        </button>
+        <button className="book-btn" aria-label="book viewing button">
+          <CalendarIcon className="fa" />
+          Request Viewing
+        </button>
+      </div>
 
       <div className="product-page-content" aria-label="product page content">
         <div
@@ -58,6 +82,149 @@ const PropertyPage = () => {
           aria-label="product page content main"
         >
           <MediaContainer />
+
+          <div
+            className="property-listing-container"
+            aria-label="property listing container"
+          >
+            <div className="listing-header" aria-label="listing header">
+              <h3>Claire Apartments</h3>
+              <p className="listing-price desk">
+                <span>KES 45,000 </span>/ month
+              </p>
+            </div>
+            <div className="listing-metadata" aria-label="listing metadata">
+              <p>
+                <PinIcon className="fa" /> Kilimani, Nairobi
+              </p>
+              <p className="listing-price">
+                <span>KES 45,000 </span>/ month
+              </p>
+            </div>
+
+            <div
+              className="listing-summary-overview"
+              aria-label="listing summary overview"
+            >
+              <div
+                className="listing-overview"
+                aria-label="listing overview bed"
+              >
+                <BedIcon className="fa" />1 Bed
+              </div>
+
+              <div
+                className="listing-overview"
+                aria-label="listing overview bath"
+              >
+                <BathIcon className="fa" />1 Bath
+              </div>
+
+              <div
+                className="listing-overview"
+                aria-label="listing overview size"
+              >
+                <SizeIcon className="fa" />
+                50 sqm
+              </div>
+
+              <div
+                className="listing-overview apartment"
+                aria-label="listing overview bath"
+              >
+                <ApartmentIcon className="fa" /> Apartment
+              </div>
+            </div>
+
+            <div
+              className="listing-agent-verification"
+              aria-label="isting agent verification"
+            >
+              <div
+                className="listing-verifcation-profile"
+                aria-label="listing verifcation profile"
+              >
+                <div
+                  className="listing-agent-profile-image"
+                  aria-label="listing-agent-profile-image"
+                >
+                  <img
+                    src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
+                    alt=""
+                    className="profile-image"
+                    aria-label="profile-image"
+                  />
+                </div>
+                <div
+                  className="listing-agent-profile"
+                  aria-label="listing agent profile"
+                >
+                  <h5>
+                    NyumbaSpot verified Agent <VerifiedIcon className="fa" />
+                  </h5>
+                  <h5>NyumbaSpot Estates</h5>
+                  <p
+                    className="listing-agent-rating"
+                    aria-label="listing agent rating"
+                  >
+                    4.8
+                    <StarIcon className="fa" />
+                    (120 reviews)
+                  </p>
+                </div>
+              </div>
+
+              <button
+                aria-label="chat with agent button"
+                className="mobile-btn"
+              >
+                <MessageIcon className="fa" />
+              </button>
+              <button className="desk-btn" aria-label="chat with agent button">
+                Chat with Agent
+              </button>
+            </div>
+
+            <div
+              className="property-description"
+              aria-label="Property Description"
+            >
+              <h5>Description</h5>
+              <p>
+                A modern and stylish 1bedroom apartment in the heart of
+                Kilimani. Features a spacious living area, open kitchen,
+                balcony, ample natural light and secure parking.
+              </p>
+            </div>
+
+            <div className="property-amenities" aria-label="property amenities">
+              <h5>Amenities</h5>
+              <div
+                className="property-amenities-container"
+                aria-label="property amenities container"
+              >
+                <PropertyAmenity name={"WI-FI"} />
+                <PropertyAmenity name={"Parking"} />
+                <PropertyAmenity name={"Security"} />
+                <PropertyAmenity name={"Water"} />
+                <PropertyAmenity name={"Generator"} />
+                <PropertyAmenity name={"Elevator"} />
+                <PropertyAmenity name={"Balcony"} />
+                <PropertyAmenity name={"Cctv"} />
+                <PropertyAmenity name={"Gym"} />
+              </div>
+            </div>
+
+            <div className="property-location" aria-label="Property location">
+              <h5>Location</h5>
+              <Suspense fallback={<MapSkeleton />}>
+                <PropertyMap
+                  latitude={-1.2027437319419985}
+                  longitude={36.90580947179994}
+                />
+              </Suspense>
+            </div>
+          </div>
         </div>
 
         <div
@@ -127,44 +294,7 @@ const PropertyPage = () => {
               <p>May 15, 2026</p>
             </div>
           </div>
-
-          <div className="property-share" aria-label="property share">
-            <h4>Share this property</h4>
-            <p>Know someone looking for a home like this?</p>
-
-            <ul
-              className="property-share-links"
-              aria-label="property share links"
-            >
-              <li
-                className="property-share-link"
-                aria-label="property whatsaap link"
-              >
-                <WhatsappIcon className="fa" />
-              </li>
-              <li
-                className="property-share-link"
-                aria-label="propert facebook link"
-              >
-                <FacebookIcon className="fa" />
-              </li>
-              <li className="property-share-link" aria-label="propert x link">
-                <XIcon className="fa" />
-              </li>
-              <li
-                className="property-share-link"
-                aria-label="propert mail link"
-              >
-                <MailIcon className="fa" />
-              </li>
-              <li
-                className="property-share-link"
-                aria-label="propert other link"
-              >
-                <ChainIcon className="fa" />
-              </li>
-            </ul>
-          </div>
+          <PropertyShare />
         </div>
       </div>
     </main>

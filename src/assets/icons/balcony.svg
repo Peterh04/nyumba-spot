@@ -1,0 +1,33 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+  aria-hidden="true"
+>
+  <!-- Outer frame -->
+  <path d="M6 20V15" />
+  <path d="M18 20V15" />
+  <path d="M2 14H22" />
+
+  <!-- Left cabinet -->
+  <rect x="6" y="4" width="6" height="10" rx="0" />
+
+  <!-- Right cabinet -->
+  <rect x="12" y="4" width="6" height="10" rx="0" />
+
+  <!-- Left knobs -->
+  <path d="M8 6h1" />
+  <path d="M8 8h1" />
+  <path d="M8 10h1" />
+  <path d="M8 12h1" />
+
+  <!-- Right knobs -->
+  <path d="M14 6h1" />
+  <path d="M14 8h1" />
+  <path d="M14 10h1" />
+  <path d="M14 12h1" />
+</svg>

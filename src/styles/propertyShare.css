@@ -1,0 +1,58 @@
+@media screen and (min-width: 900px) {
+  .property-share {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem 1rem;
+
+    gap: 0.8rem;
+
+    width: 100%;
+    height: 170px;
+
+    border-radius: 10px;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.04),
+      0 8px 24px rgba(0, 0, 0, 0.06);
+
+    background: transparent;
+  }
+
+  .property-share > p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+
+    white-space: wrap;
+  }
+
+  .property-share > .property-share-links {
+    display: flex;
+    align-items: center;
+
+    gap: 1.5rem;
+
+    height: 50px;
+  }
+
+  .property-share-links > .property-share-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 40px;
+
+    border-radius: 5px;
+
+    background-color: #f0f1f2;
+  }
+
+  .property-share-link:hover {
+    cursor: pointer;
+  }
+
+  .property-share-link > .fa {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}

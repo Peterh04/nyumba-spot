@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+  <!-- outer circle -->
+  <circle cx="12" cy="12" r="10" />
+  <!-- letter P -->
+  <path d="M9.5 7.5 v9" />
+  <path d="M9.5 7.5 h3 a2.5 2.5 0 0 1 0 5 h-3" />
+</svg>

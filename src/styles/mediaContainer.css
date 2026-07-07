@@ -190,19 +190,11 @@
 
 @media screen and (min-width: 900px) {
   .media-container {
-    height: 65vh;
-  }
-  .media-container > .main-media-active-container {
-    height: 50vh;
-  }
-}
-@media screen and (min-width: 900px) {
-  .media-container {
     display: flex;
     flex-direction: row;
 
     width: 100%;
-    height: 60vh;
+    height: 50vh;
 
     gap: 0.5rem;
 

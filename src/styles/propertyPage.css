@@ -17,10 +17,12 @@
 
   width: 100%;
 
-  padding: 1.5rem 0.5rem;
+  padding: 1.5rem 1rem;
 
   background: var(--bg-card);
-  border-bottom: 1px solid var(--border-color);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
 
   position: sticky;
   top: 0;
@@ -32,16 +34,22 @@
   display: flex;
   align-items: center;
 
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .nav-actions > .like-btn > .fa {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+
+  color: black;
 
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
+}
+
+.nav-actions > .like-btn > .fa.like {
+  color: var(--secondary-600);
 }
 
 .nav-actions > button {
@@ -49,13 +57,77 @@
 }
 
 .nav-actions > .share-btn > .fa {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .back-icon {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.property-page-action-bar {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 0.8rem 1rem;
+  gap: 0.5rem;
+
+  background: var(--bg-card);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  z-index: 100;
+
+  background: white;
+}
+
+.property-page-action-bar > button {
+  padding: 0.8rem 0.6rem;
+  border-radius: 5px;
+
+  gap: 0.5rem;
+
+  font-size: 0.9rem;
+
+  background: white;
+  white-space: nowrap;
+}
+
+.property-page-action-bar > button:hover {
+  cursor: pointer;
+}
+
+.property-page-action-bar > .book-btn {
+  background: var(--secondary-600);
+  color: white;
+
+  width: 55%;
+}
+.book-btn > .fa {
+  color: white;
+
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.property-page-action-bar > .call-btn {
+  border: 1px solid var(--secondary-400);
+  width: 45%;
+}
+
+.call-btn > .fa {
+  color: inherit;
+
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .property-page > .product-page-content {
@@ -71,16 +143,237 @@
 
 .product-page-content > .product-page-content-main {
   display: flex;
+  flex-direction: column;
   flex: 1;
 
   background: transparent;
+}
+
+.product-page-content-main > .property-listing-container {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  gap: 1.3rem;
+
+  background: transparent;
+
+  padding: 2rem 0rem;
+
+  font-size: 0.9rem;
+
+  padding-bottom: 30rem;
+}
+
+.property-listing-container > .listing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.listing-header > h3 {
+  font-size: 1.17rem;
+}
+
+.listing-header > .listing-price {
+  display: none;
+}
+
+.property-listing-container > .listing-metadata {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  background: transparent;
+}
+
+.listing-metadata > p {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.listing-metadata > p > .fa {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.listing-metadata > .listing-price {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.listing-price > span {
+  color: var(--secondary-600);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.property-listing-container > .listing-summary-overview {
+  display: flex;
+  align-items: center;
+
+  width: 90%;
+  white-space: nowrap;
+
+  gap: 2.5rem;
+
+  background-color: transparent;
+}
+
+.listing-summary-overview > .listing-overview {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+.listing-overview.apartment {
+  display: none;
+}
+
+.listing-overview > .fa {
+  width: 1.4rem;
+  height: 1.4rem;
+
+  color: rgb(73, 73, 73);
 }
 
 .product-page-content > .product-page-content-side {
   display: none;
 }
 
+.property-listing-container > .listing-agent-verification {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100px;
+
+  background: white;
+
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.listing-agent-verification > .listing-verifcation-profile {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  gap: 1rem;
+}
+.listing-verifcation-profile > .listing-agent-profile-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+
+  background: transparent;
+
+  position: relative;
+}
+
+.listing-agent-profile-image > .profile-image {
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  display: block;
+
+  border-radius: 50%;
+
+  z-index: 20;
+}
+.listing-agent-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.listing-agent-profile > h5 {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.listing-agent-profile > p {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.listing-agent-profile > p > .fa {
+  color: var(--secondary-600);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.listing-agent-profile > h5 > .fa {
+  color: var(--secondary-600);
+  width: 1rem;
+  height: 1rem;
+}
+
+.listing-agent-verification > button > .fa {
+  color: var(--secondary-600);
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+.listing-agent-verification > .desk-btn {
+  display: none;
+}
+
+.property-listing-container > .property-description {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  padding: 1rem 0rem;
+
+  border-top: 1px solid #f1f3f5;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.property-listing-container > .property-amenities {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  gap: 0.5rem;
+}
+
+.property-amenities > .property-amenities-container {
+  display: flex;
+  gap: 2rem;
+
+  width: 100%;
+
+  overflow-x: auto;
+  padding: 0.5rem 0rem;
+}
+
+.property-amenities-container::-webkit-scrollbar {
+  display: none;
+}
 @media screen and (min-width: 900px) {
+  .property-page-action-bar {
+    display: none;
+  }
   .property-page > .product-page-content {
     display: flex;
     flex-direction: row;
@@ -210,60 +503,58 @@
     border-bottom: none;
   }
 
-  .product-page-content-side > .property-share {
+  .listing-header > h3 {
+    font-size: 1.3rem;
+  }
+
+  .listing-header > .listing-price {
     display: flex;
-    flex-direction: column;
-
-    padding: 1rem 1rem;
-
-    gap: 0.8rem;
-
-    width: 100%;
-    height: 170px;
-
-    border-radius: 10px;
-    box-shadow:
-      0 1px 3px rgba(0, 0, 0, 0.04),
-      0 8px 24px rgba(0, 0, 0, 0.06);
-
-    background: transparen;
   }
 
-  .property-share > p {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-
-    white-space: wrap;
+  .listing-metadata > .listing-price {
+    display: none;
   }
 
-  .property-share > .property-share-links {
+  .listing-header > .listing-price {
     display: flex;
     align-items: center;
-
-    gap: 1.5rem;
-
-    height: 50px;
   }
 
-  .property-share-links > .property-share-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .listing-header > .listing-price > span {
+    color: var(--secondary-600);
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
 
-    width: 45px;
-    height: 40px;
+  .listing-overview.apartment {
+    display: flex;
+  }
+
+  .product-page-content-main > .property-listing-container {
+    flex: 1;
+  }
+  .listing-agent-verification > .mobile-btn {
+    display: none;
+  }
+
+  .listing-agent-verification > .desk-btn {
+    display: flex;
+
+    padding: 0.6rem 2rem;
+
+    white-space: nowrap;
 
     border-radius: 5px;
-
-    background-color: #f0f1f2;
-  }
-
-  .property-share-link:hover {
     cursor: pointer;
+    background: var(--secondary-600);
+
+    color: white;
+  }
+  .property-description > p {
+    width: 50%;
   }
 
-  .property-share-link > .fa {
-    width: 1.6rem;
-    height: 1.6rem;
+  .property-amenities > .property-amenities-container {
+    gap: 3.5rem;
   }
 }
