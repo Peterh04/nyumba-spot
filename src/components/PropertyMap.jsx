@@ -8,8 +8,9 @@ import PinIcon from "../assets/icons/pin2.svg";
 
 const PropertyIcon = L.icon({
   iconUrl: PinIcon,
-  iconSize: [24, 24],
-  iconAnchor: [12, 24],
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -40],
 });
 
 const PropertyMap = ({ latitude, longitude }) => {

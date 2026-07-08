@@ -1,0 +1,43 @@
+.property-nearby-places {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem 1rem;
+
+  gap: 1rem;
+
+  width: 100%;
+  min-height: 140px;
+
+  border-radius: 10px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+
+  background: transparent;
+}
+
+.property-nearby-places > .nearby-place {
+  display: flex;
+  justify-content: space-between;
+
+  background-color: transparent;
+
+  border-bottom: 0.5px solid var(--text-grey);
+  padding: 0.5rem 0rem;
+
+  font-size: 0.9rem;
+}
+
+.property-nearby-places > span {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  color: var(--secondary-400);
+}
+
+.property-nearby-places > span:hover {
+  cursor: pointer;
+  color: var(--secondary-600);
+}

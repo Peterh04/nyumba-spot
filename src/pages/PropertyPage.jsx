@@ -20,6 +20,9 @@ import PropertyShare from "../components/PropertyShare";
 import MediaContainer from "../components/MediaContainer";
 import PropertyAmenity from "../components/PropertyAmenity";
 import MapSkeleton from "../components/MapSkeleton.jsx";
+import PropertyOverview from "../components/PropertyOverview.jsx";
+import PropertyRequirmetsRules from "../components/PropertyRequirmetsRules.jsx";
+import PropertyNearbyPlaces from "../components/PropertyNearbyPlaces.jsx";
 
 const PropertyMap = lazy(() => import("../components/PropertyMap.jsx"));
 const PropertyPage = () => {
@@ -224,6 +227,68 @@ const PropertyPage = () => {
                 />
               </Suspense>
             </div>
+
+            <PropertyOverview />
+
+            <div className="property-costs" aria-label="property costs">
+              <h4>Move-in Costs</h4>
+              <p>All estimated costs you'll pay when moving in.</p>
+              <div className="cost-item" aria-label="property cost item">
+                <div
+                  className="cost-item-name"
+                  aria-label="cost item name cotainer"
+                >
+                  <p>Monthly Rent</p>
+                </div>
+                <p>KES 45,000</p>
+              </div>
+              <div className="cost-item" aria-label="property cost item">
+                <div
+                  className="cost-item-name"
+                  aria-label="cost item name cotainer"
+                >
+                  <p>Security Deposit</p>
+                  <span>(Refundable)</span>
+                </div>
+                <p>KES 45,000</p>
+              </div>
+              <div className="cost-item" aria-label="property cost item">
+                <div
+                  className="cost-item-name"
+                  aria-label="cost item name cotainer"
+                >
+                  <p>Water Deposit</p>
+                  <span>(Refundable)</span>
+                </div>
+                <p>KES 2,000</p>
+              </div>
+              <div className="cost-item" aria-label="property cost item">
+                <div
+                  className="cost-item-name"
+                  aria-label="cost item name cotainer"
+                >
+                  <p>Electricty Token Deposit</p>
+                  <span>(Refundable)</span>
+                </div>
+                <p>KES 1,000</p>
+              </div>
+              <div
+                className="total-cost-container"
+                aria-label="total cost container"
+              >
+                <p>Total Move-in Cost</p>
+                <span aria-label="total estimate cost">KES 93,000</span>
+              </div>
+              <span>
+                <sup>*</sup>Costs may vary. Confirm with the agent
+              </span>
+            </div>
+
+            <PropertyRequirmetsRules />
+
+            <PropertyNearbyPlaces />
+
+            <PropertyShare />
           </div>
         </div>
 
@@ -244,56 +309,8 @@ const PropertyPage = () => {
             </button>
           </div>
 
-          <div className="property-overview" aria-label="property overview">
-            <h4>Property Overview</h4>
-            <div className="overview-item" aria-label="property type overview">
-              <p>Property Type</p>
-              <p>Apartments</p>
-            </div>
-            <div
-              className="overview-item"
-              aria-label="property bedroom overview"
-            >
-              <p>Bedrooms</p>
-              <p>1</p>
-            </div>
-            <div
-              className="overview-item"
-              aria-label="property bathroom overview"
-            >
-              <p>Bathrooms</p>
-              <p>1</p>
-            </div>
-            <div className="overview-item" aria-label="property size overview">
-              <p>Property Size</p>
-              <p>50 sqm</p>
-            </div>
-            <div
-              className="overview-item"
-              aria-label="property furnished overview"
-            >
-              <p>Furnished</p>
-              <p>Yes</p>
-            </div>
-            <div className="overview-item" aria-label="property floor overview">
-              <p>Floor Level</p>
-              <p>5th Floor</p>
-            </div>
-            <div
-              className="overview-item"
-              aria-label="property parking overview"
-            >
-              <p>Parking</p>
-              <p>Yes</p>
-            </div>
-            <div
-              className="overview-item listed-overview"
-              aria-label="property listed date overview"
-            >
-              <p>Listed On</p>
-              <p>May 15, 2026</p>
-            </div>
-          </div>
+          <PropertyOverview />
+
           <PropertyShare />
         </div>
       </div>

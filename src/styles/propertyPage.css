@@ -163,7 +163,7 @@
 
   font-size: 0.9rem;
 
-  padding-bottom: 30rem;
+  padding-bottom: 5rem;
 }
 
 .property-listing-container > .listing-header {
@@ -370,6 +370,76 @@
 .property-amenities-container::-webkit-scrollbar {
   display: none;
 }
+
+.property-listing-container > .property-costs {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem 1rem;
+
+  gap: 1rem;
+
+  width: 100%;
+  height: 565px;
+
+  border-radius: 10px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+
+  background: transparent;
+}
+
+.property-costs > .cost-item {
+  display: flex;
+  justify-content: space-between;
+
+  background-color: transparent;
+
+  border-bottom: 0.5px solid var(--text-grey);
+  padding: 0.5rem 0rem;
+
+  font-size: 0.9rem;
+}
+
+.cost-item > .cost-item-name {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.cost-item-name > span {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.property-costs > .total-cost-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  background: var(--secondary-100);
+  padding: 1.5rem 1rem;
+
+  border-radius: 10px;
+}
+
+.total-cost-container > p {
+  font-weight: 600;
+}
+
+.total-cost-container > span {
+  color: var(--secondary-600);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.property-costs > span {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
 @media screen and (min-width: 900px) {
   .property-page-action-bar {
     display: none;
@@ -468,41 +538,6 @@
     height: 1.2rem;
   }
 
-  .product-page-content-side > .property-overview {
-    display: flex;
-    flex-direction: column;
-
-    padding: 1rem 1rem;
-
-    gap: 1rem;
-
-    width: 100%;
-    height: 500px;
-
-    border-radius: 10px;
-    box-shadow:
-      0 1px 3px rgba(0, 0, 0, 0.04),
-      0 8px 24px rgba(0, 0, 0, 0.06);
-
-    background: transparent;
-  }
-
-  .property-overview > .overview-item {
-    display: flex;
-    justify-content: space-between;
-
-    background-color: transparent;
-
-    border-bottom: 0.5px solid var(--text-grey);
-    padding: 0.5rem 0rem;
-
-    font-size: 0.9rem;
-  }
-
-  .overview-item.listed-overview {
-    border-bottom: none;
-  }
-
   .listing-header > h3 {
     font-size: 1.3rem;
   }
@@ -556,5 +591,13 @@
 
   .property-amenities > .property-amenities-container {
     gap: 3.5rem;
+  }
+
+  .property-listing-container > .property-overview {
+    display: none;
+  }
+
+  .property-listing-container > .property-share {
+    display: none;
   }
 }
