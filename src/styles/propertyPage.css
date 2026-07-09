@@ -190,6 +190,7 @@
   width: 100%;
 
   background: transparent;
+  margin-top: 10px;
 }
 
 .listing-metadata > p {
@@ -213,7 +214,7 @@
 .listing-price > span {
   color: var(--secondary-600);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .property-listing-container > .listing-summary-overview {
@@ -226,6 +227,8 @@
   gap: 2.5rem;
 
   background-color: transparent;
+
+  margin-top: 10px;
 }
 
 .listing-summary-overview > .listing-overview {
@@ -251,6 +254,7 @@
 
 .property-listing-container > .listing-agent-verification {
   display: flex;
+  flex-direction: column;
   align-items: center;
 
   width: 100%;
@@ -260,6 +264,8 @@
 
   padding: 1.5rem 1rem;
   border-radius: 10px;
+
+  gap: 1rem;
 
   box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.04),
@@ -272,6 +278,8 @@
   height: 100%;
 
   gap: 1rem;
+
+  background: transparent;
 }
 .listing-verifcation-profile > .listing-agent-profile-image {
   display: flex;
@@ -334,9 +342,19 @@
 }
 
 .listing-agent-verification > .desk-btn {
-  display: none;
-}
+  display: flex;
 
+  padding: 0.6rem 2rem;
+  width: 100%;
+
+  white-space: nowrap;
+
+  border-radius: 5px;
+  cursor: pointer;
+  background: var(--secondary-600);
+
+  color: white;
+}
 .property-listing-container > .property-description {
   display: flex;
   flex-direction: column;
@@ -347,6 +365,8 @@
 
   border-top: 1px solid #f1f3f5;
   border-bottom: 1px solid #f1f3f5;
+
+  font-size: 0.95rem;
 }
 
 .property-listing-container > .property-amenities {
@@ -380,7 +400,9 @@
   gap: 1rem;
 
   width: 100%;
-  height: 565px;
+  height:
+    565,
+    m mmpx;
 
   border-radius: 10px;
   box-shadow:
@@ -573,17 +595,7 @@
   }
 
   .listing-agent-verification > .desk-btn {
-    display: flex;
-
-    padding: 0.6rem 2rem;
-
-    white-space: nowrap;
-
-    border-radius: 5px;
-    cursor: pointer;
-    background: var(--secondary-600);
-
-    color: white;
+    width: auto;
   }
   .property-description > p {
     width: 50%;
@@ -599,5 +611,9 @@
 
   .property-listing-container > .property-share {
     display: none;
+  }
+
+  .property-listing-container > .listing-agent-verification {
+    flex-direction: row;
   }
 }

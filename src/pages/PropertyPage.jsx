@@ -177,12 +177,6 @@ const PropertyPage = () => {
                 </div>
               </div>
 
-              <button
-                aria-label="chat with agent button"
-                className="mobile-btn"
-              >
-                <MessageIcon className="fa" />
-              </button>
               <button className="desk-btn" aria-label="chat with agent button">
                 Chat with Agent
               </button>

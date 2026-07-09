@@ -10,9 +10,9 @@
   min-height: 140px;
 
   border-radius: 10px;
-  box-shadow:
+  /* box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.06);
+    0 8px 24px rgba(0, 0, 0, 0.06); */
 
   background: transparent;
 }
