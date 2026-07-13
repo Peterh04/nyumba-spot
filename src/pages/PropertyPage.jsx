@@ -14,7 +14,6 @@ import SizeIcon from "../assets/icons/size.svg?react";
 import ApartmentIcon from "../assets/icons/apartment.svg?react";
 import VerifiedIcon from "../assets/icons/verified.svg?react";
 import StarIcon from "../assets/icons/star.svg?react";
-import MessageIcon from "../assets/icons/message.svg?react";
 
 import PropertyShare from "../components/PropertyShare";
 import MediaContainer from "../components/MediaContainer";

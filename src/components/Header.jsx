@@ -35,9 +35,6 @@ export default function Header() {
           <a href="">Property</a>
         </li>
         <li>
-          <a href="">Blog</a>
-        </li>
-        <li>
           <a href="">Careers</a>
         </li>
         <li>

@@ -8,15 +8,22 @@ import StarIcon from "../assets/icons/star.svg?react";
 import LikeIcon from "../assets/icons/like.svg?react";
 import UnLikeIcon from "../assets/icons/like-outline.svg?react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PropertyPreview = () => {
   const [like, setLike] = useState(false);
 
-  const like_unlike = () => {
+  const like_unlike = (e) => {
+    e.preventDefault();
     setLike((prev) => !prev);
   };
+
   return (
-    <div className="property-preview" aria-label="property preview">
+    <Link
+      className="property-preview"
+      aria-label="property preview"
+      to={"/properties"}
+    >
       <div className="property-image-container">
         <img
           src="https://serene.zendata.co.ke/web/image/website.gallery.image/9/image"
@@ -59,7 +66,7 @@ const PropertyPreview = () => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
