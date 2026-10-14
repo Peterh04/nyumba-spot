@@ -22,6 +22,7 @@ import MapSkeleton from "../components/MapSkeleton.jsx";
 import PropertyOverview from "../components/PropertyOverview.jsx";
 import PropertyRequirmetsRules from "../components/PropertyRequirmetsRules.jsx";
 import PropertyNearbyPlaces from "../components/PropertyNearbyPlaces.jsx";
+import Footer from "../components/Footer.jsx";
 
 const PropertyMap = lazy(() => import("../components/PropertyMap.jsx"));
 const PropertyPage = () => {

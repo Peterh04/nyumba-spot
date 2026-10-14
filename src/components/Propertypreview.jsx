@@ -10,7 +10,7 @@ import UnLikeIcon from "../assets/icons/like-outline.svg?react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const PropertyPreview = () => {
+const PropertyPreview = ({ name, img, location, bed }) => {
   const [like, setLike] = useState(false);
 
   const like_unlike = (e) => {
@@ -25,10 +25,7 @@ const PropertyPreview = () => {
       to={"/properties"}
     >
       <div className="property-image-container">
-        <img
-          src="https://serene.zendata.co.ke/web/image/website.gallery.image/9/image"
-          className="property-image"
-        />
+        <img src={img} className="property-image" />
         <button
           className="like-btn"
           aria-label="like button"
@@ -42,14 +39,15 @@ const PropertyPreview = () => {
         </button>
       </div>
       <div className="property-meta" aria-label="property meta">
-        <h3>Claire Apartments</h3>
+        <h3>{name}</h3>
         <p>
           <PinIcon className="fa property-icons" />
-          Westlands, Nairobi
+          {location}
         </p>
         <div className="property-details" aria-label="property details">
           <p className="property-type" aria-label="property type">
-            <BedIcon className="fa property-icons" />3 beds
+            <BedIcon className="fa property-icons" />
+            {bed} beds
           </p>
           <p className="property-bath" aria-label="property bath">
             <BathIcon className="fa property-icons" />2 baths
