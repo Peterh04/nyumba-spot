@@ -27,8 +27,8 @@ export default function Login() {
 
     setLoading(true);
     try {
-      // TODO: call your login API here, e.g.
-      // await fetch("/api/login", { method: "POST", body: JSON.stringify(form) });
+      // TODO: call login API here, e.g.
+
       console.log("Login", form);
     } finally {
       setLoading(false);
@@ -36,8 +36,8 @@ export default function Login() {
   };
 
   const handleGoogle = () => {
-    // TODO: start your Google sign-in here
-    // e.g. window.location.href = "/api/auth/google";
+    // TODO: Google sign-in here
+
     console.log("Google sign-in");
   };
 

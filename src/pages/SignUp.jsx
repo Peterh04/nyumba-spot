@@ -38,8 +38,7 @@ export default function SignUp() {
 
     setLoading(true);
     try {
-      // TODO: call your sign-up API here, e.g.
-      // await fetch("/api/register", { method: "POST", body: JSON.stringify(form) });
+      // TODO: call sign-up API here, e.g.
       console.log("Sign up", form);
     } finally {
       setLoading(false);
@@ -47,8 +46,8 @@ export default function SignUp() {
   };
 
   const handleGoogle = () => {
-    // TODO: start your Google sign-in here
-    // e.g. window.location.href = "/api/auth/google";
+    // TODO: Google sign-in here
+
     console.log("Google sign-up");
   };
 

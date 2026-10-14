@@ -16,8 +16,8 @@ export default function ForgotPassword() {
     setError("");
     setLoading(true);
     try {
-      // TODO: call your reset-password API here, e.g.
-      // await fetch("/api/forgot-password", { method: "POST", body: JSON.stringify({ email }) });
+      // TODO: call reset-password API here
+
       console.log("Reset link for", email);
       setSent(true);
     } finally {
