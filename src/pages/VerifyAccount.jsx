@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import AuthLayout from "../components/AuthLayout.jsx";
+import axios from "axios";
+import { data, useNavigate } from "react-router-dom";
 
 const CODE_LENGTH = 6;
 const RESEND_SECONDS = 30;
@@ -12,8 +14,11 @@ export default function VerifyAccount() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [seconds, setSeconds] = useState(RESEND_SECONDS);
+  const [resendTries, setResendTries] = useState(1);
   const [resent, setResent] = useState(false);
   const inputs = useRef([]);
+
+  const navigate = useNavigate();
 
   // Focuses on the first box on load
   useEffect(() => {
@@ -82,7 +87,27 @@ export default function VerifyAccount() {
 
     setLoading(true);
     try {
+      const { data } = await axios.post(
+        "http://localhost:5001/api/email-verification/otp/verify",
+        {
+          email,
+          OTP: code,
+        },
+      );
       console.log("Verify", { email, code });
+      navigate("/");
+    } catch (error) {
+      const code = error.response?.data?.code;
+
+      if (
+        code === "OTP_expired" ||
+        code === "OTP_Max_Attempt" ||
+        code === "OTP_Incorrect"
+      ) {
+        setError(error.response?.data?.message);
+      } else {
+        setError(error.response?.data?.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -94,9 +119,25 @@ export default function VerifyAccount() {
     setDigits(Array(CODE_LENGTH).fill(""));
     inputs.current[0]?.focus();
     // TODO: call resend-code API here
-    console.log("Resend code to", email);
-    setSeconds(RESEND_SECONDS);
-    setResent(true);
+
+    try {
+      const { data } = await axios.post(
+        "http://localhost:5001/api/email-verification/otp/resend",
+        {
+          email,
+        },
+      );
+
+      console.log("Resend code to", email);
+      setSeconds(RESEND_SECONDS);
+      setResent(true);
+    } catch (error) {
+      let code = error?.response?.data?.CODE;
+      if (code === "MAX_RESEND_ERROR") {
+        setSeconds(900);
+      }
+      setError(error?.response?.data?.message);
+    }
   };
 
   return (

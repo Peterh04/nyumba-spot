@@ -6,8 +6,10 @@ import { useState } from "react";
 import SignUp from "./pages/SignUp.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
 import VerifyAccount from "./pages/VerifyAccount.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
   const [properties, setPropeties] = useState([
     {
       id: 1,
@@ -64,21 +66,25 @@ function App() {
         "https://pictures-kenya.jijistatic.com/84105260_MTA4MC0xNDQwLTI2ZTVlYzUyNWMtMQ.webp",
     },
   ]);
+
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage properties={properties} setPropeties={setPropeties} />
-          }
-        />
-        <Route path="/properties" element={<PropertyPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/verify-account" element={<VerifyAccount />} />
-      </Routes>
+      <GoogleOAuthProvider clientId={clientId}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage properties={properties} setPropeties={setPropeties} />
+            }
+          />
+          <Route path="/properties" element={<PropertyPage />} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/verify-account" element={<VerifyAccount />} />
+        </Routes>
+      </GoogleOAuthProvider>
     </>
   );
 }

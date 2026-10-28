@@ -1,10 +1,15 @@
 import { useState } from "react";
 import AuthLayout, { Field, PasswordField } from "../components/AuthLayout.jsx";
+import { GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "", remember: true });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -35,10 +40,21 @@ export default function Login() {
     }
   };
 
-  const handleGoogle = () => {
-    // TODO: Google sign-in here
+  const handleGoogle = async (credential) => {
+    setLoading(true);
+    try {
+      const data = await axios.post("http://localhost:5001/api/users/google", {
+        credential: credential,
+      });
 
-    console.log("Google sign-in");
+      console.log("Successfully created or logged in the user");
+
+      navigate("/");
+    } catch (error) {
+      setErrors(error?.response?.data.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -54,7 +70,7 @@ export default function Login() {
         </>
       }
     >
-      <button
+      {/* <button
         type="button"
         className="auth__btn auth__btn--outline auth__btn--google"
         onClick={handleGoogle}
@@ -82,7 +98,16 @@ export default function Login() {
           />
         </svg>
         Sign in with Google
-      </button>
+      </button> */}
+
+      <GoogleLogin
+        onSuccess={(credentialResponse) => {
+          handleGoogle(credentialResponse.credential);
+        }}
+        onError={() => {
+          setErrors("Google sign-in failed. Please try again.");
+        }}
+      />
 
       <div className="auth__divider">or</div>
 
