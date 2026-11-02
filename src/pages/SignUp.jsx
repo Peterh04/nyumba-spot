@@ -1,8 +1,9 @@
 import { useState } from "react";
 import AuthLayout, { Field, PasswordField } from "../components/AuthLayout.jsx";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
+import { useAuth } from "../context/AuthContext.jsx";
 
 export default function SignUp() {
   const [form, setForm] = useState({
@@ -17,6 +18,9 @@ export default function SignUp() {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
+
+  if (user !== null) return <Navigate to={"/"} replace />;
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;

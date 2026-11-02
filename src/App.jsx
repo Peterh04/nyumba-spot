@@ -7,9 +7,11 @@ import SignUp from "./pages/SignUp.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
 import VerifyAccount from "./pages/VerifyAccount.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { useAuth } from "./context/AuthContext.jsx";
 
 function App() {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  const { user } = useAuth();
   const [properties, setPropeties] = useState([
     {
       id: 1,
@@ -67,6 +69,7 @@ function App() {
     },
   ]);
 
+  console.log(user);
   return (
     <>
       <GoogleOAuthProvider clientId={clientId}>

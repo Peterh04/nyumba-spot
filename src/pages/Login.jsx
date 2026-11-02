@@ -2,14 +2,21 @@ import { useState } from "react";
 import AuthLayout, { Field, PasswordField } from "../components/AuthLayout.jsx";
 import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
+import { Navigate, useNavigate } from "react-router-dom";
+import api from "../modules/apiClient.js";
+import { setAccessToken } from "../modules/accessTokenModule.js";
+import { useAuth } from "../context/AuthContext.jsx";
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "", remember: true });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const { user, setUser } = useAuth();
+
+  if (user !== null) {
+    return <Navigate to="/" replace />;
+  }
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -29,12 +36,17 @@ export default function Login() {
     const next = validate();
     setErrors(next);
     if (Object.keys(next).length) return;
-
     setLoading(true);
     try {
-      // TODO: call login API here, e.g.
-
-      console.log("Login", form);
+      const { data } = await api.post("/users/login", {
+        email: form.email,
+        password: form.password,
+      });
+      setAccessToken(data.token);
+      setUser(data.user);
+      navigate("/");
+    } catch (error) {
+      setErrors(error?.response?.data.message);
     } finally {
       setLoading(false);
     }
@@ -43,12 +55,13 @@ export default function Login() {
   const handleGoogle = async (credential) => {
     setLoading(true);
     try {
-      const data = await axios.post("http://localhost:5001/api/users/google", {
+      const res = await api.post("/users/google", {
         credential: credential,
       });
 
+      setAccessToken(res.data.token);
+      setUser(res.data.user);
       console.log("Successfully created or logged in the user");
-
       navigate("/");
     } catch (error) {
       setErrors(error?.response?.data.message);

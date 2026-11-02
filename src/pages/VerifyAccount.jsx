@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import AuthLayout from "../components/AuthLayout.jsx";
 import axios from "axios";
-import { data, useNavigate } from "react-router-dom";
+import { data, Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const CODE_LENGTH = 6;
 const RESEND_SECONDS = 30;
@@ -19,6 +20,7 @@ export default function VerifyAccount() {
   const inputs = useRef([]);
 
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   // Focuses on the first box on load
   useEffect(() => {
@@ -32,6 +34,8 @@ export default function VerifyAccount() {
     const time = setTimeout(() => setSeconds((s) => s - 1), 1000);
     return () => clearTimeout(time);
   }, [seconds]);
+
+  if (user !== null) return <Navigate to={"/"} replace />;
 
   // Put a string of digits into the boxes starting at starts
   const fillFrom = (start, str) => {
